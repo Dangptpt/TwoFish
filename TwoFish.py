@@ -550,7 +550,7 @@ def TwoFish_encrypt(Plaintext, Raw_Key, mode):
     result = ""
     for block in CT:
         result += block
-    return result.upper()
+    return result
 
 #---------------------------------------------------------------------------#
 
@@ -611,7 +611,9 @@ def TwoFish_decrypt(Ciphertext, Raw_Key, mode):
     result = ""
     for block in PT:
         result += block
-    return hex_To_Text(result.upper())
+    ans = hex_To_Text(result)
+    ans = ans.replace('\x00', '')
+    return ans
 
 #---------------------------------------------------------------------------#
 
